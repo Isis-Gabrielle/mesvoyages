@@ -23,7 +23,17 @@
                 {{ form_row(formvisite.environnements) }}
         </div>
         <div class="col">
-            
+            <div>
+                {{ form_row(formvisite.imageFile) }}
+            </div>
+            <div>
+                Image actuelle:
+                {% if visite.imagename %}
+                    <img src="{{ app.request.getBasePath()~vich_uploader_asset(visite, 'imageFile') }}" class="card-img-top" style="width: 100%;height:auto;">
+                {% else %}
+                    <p>(pas d'image)</p>
+                {% endif %}
+            </div>
         </div>
     </div>
         <div class="row">
