@@ -40,6 +40,7 @@ class VoyagesController extends AbstractController{
         return $this->render("pages/voyage.html.twig", 
                 ['visite' => $visite]);
     }
+    
      /**
      * @var VisiteRepository
      */

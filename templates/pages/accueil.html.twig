@@ -1,4 +1,47 @@
 {% extends "basefront.html.twig" %}
 {% block body %}
-<h1>page d'accueil</h1>
+    <h1>page d'accueil</h1>
+    <p>Lorem ipsum dolor sit <a href="{{ path('voyages')}}">voyages</a>, consectetur adipiscing elit. Curabitur pretium velit aliquam justo luctus sodales. Proin vel commodo ligula. Phasellus tellus arcu, ultrices sit amet massa quis, dictum rhoncus erat. Nulla facilisi. Etiam at elementum nibh. Nam non nulla eget dolor commodo lobortis. Integer egestas metus id auctor iaculis.
+
+        Ut consequat urna sit amet ex finibus, non mattis libero finibus. Etiam maximus dolor cursus, imperdiet elit et, fringilla purus. Sed luctus tellus vel leo facilisis ultrices. Nunc venenatis pharetra nisi sed pellentesque. Integer ut interdum massa. Ut sed diam dui. Morbi fermentum urna eget quam tincidunt fermentum. Ut pulvinar, elit in rutrum pharetra, arcu massa iaculis nisl, vitae laoreet massa augue quis nulla.
+    </p><p>
+        Ut pharetra diam ante, a mollis enim <a href="{{ path('contact')}}">contact</a> nec. Sed in lorem viverra, ultrices nibh ut, tempor tortor. Vivamus laoreet mattis sem vel blandit. Phasellus justo turpis, volutpat sit amet fringilla sed, aliquam ut dui. In tristique sem est. Proin sem purus, condimentum nec metus ac, efficitur malesuada lorem. Nullam tincidunt mauris non leo hendrerit, sed dapibus metus faucibus. Nam elementum fringilla ultrices.
+
+        </p>
+        <hr>
+    <div class="row mt-2">
+        {% for visite in visites %}
+            <div class="col">  
+                {% if visite.imageName %}
+                    <img src="{{ app.request.getBasePath()~vich_uploader_asset(visite, 'imageFile') }}" 
+                         class="card-img" style="width: 300px;height:auto;">
+                {% else %}
+                    <p>(pas d'image)</p>
+                {% endif %}
+            </div>
+            <div class="col">
+                <h5>{{ visite.datecreationString }}</h5>  
+                <h5 class="text-primary">
+                <a href="{{ path('voyages.showone', {id:visite.id}) }}">{{ visite.ville }}</a>
+            </h5>   
+                <h3>{{ visite.pays }}</h3>
+
+                {% if visite.note < 10 %}
+                    <div class="text-danger">{{ visite.note }}/20</div>
+                {% else %}
+                    <div class="text-success">{{ visite.note }}/20</div>
+                {% endif %}
+
+                <h5 class="mt-5">t° entre {{ visite.tempmin }}° et {{ visite.tempmax }}°</h5>
+
+                <p class="mt-5"><strong>Environnements :</strong></p>
+                {% for environnement in visite.environnements %}
+                    {{ environnement.nom }}
+                {% else %}
+                    <p>(aucun environnement)</p>
+                {% endfor %}
+            </div> 
+
+        {% endfor %}
+    </div>
 {% endblock %}

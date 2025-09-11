@@ -28,7 +28,15 @@ class VisiteRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getResult();
     }
-
+    
+    public function findLastTwo(): array{
+        return $this->createQueryBuilder('v')
+                ->orderBy('v.datecreation', 'DESC')
+                ->setMaxResults(2)
+                ->getQuery()
+                ->getResult();
+    }
+    
     /**
      * 
      * @param type $champ
