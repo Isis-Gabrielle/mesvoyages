@@ -24,7 +24,7 @@ class ContactController extends AbstractController{
         }
         return $this->render("pages/contact.html.twig",
                 ['contact' => $contact,
-                    'formcontact' => $formContact->createView()]);
+                 'formcontact' => $formContact->createView()]);
     }
     
     #[Route('/email')]
