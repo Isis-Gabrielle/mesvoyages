@@ -16,3 +16,4 @@ jobs:
         username: mesvoyages
         password: ${{ secrets.ftp_password }}
         protocol: ftps
+        pasv: true
