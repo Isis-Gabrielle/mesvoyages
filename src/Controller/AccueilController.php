@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Controller;
 
 use App\Repository\VisiteRepository;
@@ -11,7 +11,7 @@ class AccueilController extends AbstractController{
     #[Route('/', name: 'accueil')]
     public function index(): Response{
         $visites = $this->repository->findLastTwo();
-        return $this->render("pages/accueil.html.twig", 
+        return $this->render("pages/accueil.html.twig",
                 ['visites' => $visites]);
     }
      /**
@@ -20,7 +20,7 @@ class AccueilController extends AbstractController{
     private $repository;
      
     /**
-     * 
+     *
      * @param VisiteRepository $repository
      */
     public function __construct(VisiteRepository $repository) {

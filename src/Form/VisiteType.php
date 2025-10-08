@@ -22,7 +22,7 @@ class VisiteType extends AbstractType
             ->add('ville')
             ->add('pays')
             ->add('datecreation', DateType::class, ['widget' => 'single_text',
-                'data' => isset($options['data']) && 
+                'data' => isset($options['data']) &&
                 $options['data']->getDateCreation() != null ? $options['data']->getDateCreation() : new DateTime('now'),
                 'label' => 'Date'])
             ->add('note', IntegerType::class, [
@@ -45,9 +45,7 @@ class VisiteType extends AbstractType
                 'required' => false,
                 'label' => 'sélection image'
             ])
-            ->add('submit', SubmitType::class,['label' => 'Enregistrer'])
-            
-        ;
+            ->add('submit', SubmitType::class,['label' => 'Enregistrer']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

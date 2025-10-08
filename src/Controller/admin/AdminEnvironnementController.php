@@ -9,14 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminEnvironnementController extends AbstractController {
+class AdminEnvironnementController extends AbstractController{
      #[Route('/admin/environnements', name: 'admin.environnements')]
     public function index(): Response{
         $environnements = $this->repository->findAll();
-        return $this->render("admin/admin.environnements.html.twig", 
+        return $this->render("admin/admin.environnements.html.twig",
                 ['environnements' => $environnements]);
     }
-    
     
     #[Route('/admin/environnement/ajout', name: 'admin.environnement.ajout')]
     public function ajout(Request $request): Response{
@@ -34,18 +33,14 @@ class AdminEnvironnementController extends AbstractController {
         return $this->redirectToRoute('admin.environnements');
     }
      /**
-      * 
-      * 
       * @var EnvironnementRepository
       */
     private $repository;
-     
+
     /**
-     * 
-     * 
      * @param EnvironnementRepository $repository
      */
-    public function __construct(EnvironnementRepository $repository) {
+    public function __construct(EnvironnementRepository $repository){
         $this->repository = $repository;
     }
 }

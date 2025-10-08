@@ -17,7 +17,7 @@ class VisiteRepository extends ServiceEntityRepository
     }
 
   /**
- * 
+ *
  * @param type $champ
  * @param type $ordre
  * @return visite[]
@@ -38,7 +38,7 @@ class VisiteRepository extends ServiceEntityRepository
     }
     
     /**
-     * 
+     *
      * @param type $champ
      * @param type $valeur
      * @return visite[]
@@ -60,7 +60,7 @@ class VisiteRepository extends ServiceEntityRepository
         }
     }
     /**
-     * 
+     *
      * @param Visite $visite
      * @return void
      */
@@ -69,7 +69,7 @@ class VisiteRepository extends ServiceEntityRepository
         $this->getEntityManager()->flush();
     }
     /**
-     * 
+     *
      * @param Visite $visite
      * @return void
      */

@@ -17,7 +17,7 @@ class EnvironnementRepository extends ServiceEntityRepository
     }
 
    /**
-    * 
+    *
     * @param Environnement $environnement
     * @return void
     */
@@ -26,7 +26,7 @@ class EnvironnementRepository extends ServiceEntityRepository
         $this->getEntityManager()->flush();
     }
     /**
-     * 
+     *
      * @param Environnement $environnement
      * @return void
      */
