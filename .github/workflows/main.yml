@@ -11,9 +11,9 @@ jobs:
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: ftp-mesvoyages.alwaysdata.net
+        server: ftp-projetsisis.alwaysdata.net
         server-dir: /www/mesvoyages/public/
-        username: mesvoyages
+        username: projetsisis
         password: ${{ secrets.ftp_password }}
         protocol: ftps
         pasv: true
